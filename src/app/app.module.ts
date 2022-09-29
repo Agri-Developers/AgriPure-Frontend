@@ -14,15 +14,20 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+// componentes
 import { LogInComponent } from './authentication/log-in/log-in.component';
 import { PlansComponent } from './authentication/plans/plans.component';
+import { PlantsComponent } from './pages/plants/plants.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterFormComponent,
     LogInComponent,
-    PlansComponent
+    PlansComponent,
+    PlantsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,9 @@ import { PlansComponent } from './authentication/plans/plans.component';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSidenavModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
