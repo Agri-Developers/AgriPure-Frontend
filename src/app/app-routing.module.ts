@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'accounts/login',
+    redirectTo: 'plants',
   },
   {
     path: 'accounts/login',
@@ -24,7 +24,7 @@ const routes: Routes = [
     component: PlansComponent,
   },
   {
-    path: 'pages/plants',
+    path: 'plants',
     component: PlantsComponent,
   },
 ];
