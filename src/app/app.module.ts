@@ -20,6 +20,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { LogInComponent } from './authentication/log-in/log-in.component';
 import { PlansComponent } from './authentication/plans/plans.component';
 import { PlantsComponent } from './pages/plants/plants.component';
+import { LayoutComponent } from './shared/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PlantsComponent } from './pages/plants/plants.component';
     RegisterFormComponent,
     LogInComponent,
     PlansComponent,
-    PlantsComponent
+    PlantsComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

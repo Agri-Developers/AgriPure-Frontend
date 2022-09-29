@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -16,14 +17,11 @@ export class LogInComponent {
     password: ['', {validators: [Validators.required, Validators.minLength(8)], updateOn: 'change'}],
   })
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   submitForm() {
     //cuando se haga submit ir al dashboard
-    this.submitted = true;
-    console.log({
-      email: this.loginForm.controls.email.value,
-      password: this.loginForm.controls.password.value,
-    });
+    if (this.loginForm.invalid) return;
+    this.router.navigate(['/']);
   }
 }

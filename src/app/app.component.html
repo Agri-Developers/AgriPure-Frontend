@@ -1,44 +1,7 @@
-<!-- dashboard -->
 <ng-container *ngIf="renderLayout; else routerOutlet">
-  <mat-toolbar class="mat-elevation-z8">
-    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
-    </button>
-    AgriPure: Manage your planting
-  </mat-toolbar>
-
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-      <img class="logo mat-elevation-z8" src="assets/logo.png" />
-
-      <h3 class="name">AgriPure</h3>
-      <br />
-
-      <button mat-button class="menu-button" routerLink="/plants">
-        <mat-icon>local_florist</mat-icon>
-        <span>Plants</span>
-      </button>
-      <button mat-button class="menu-button" routerLink="/calendar">
-        <mat-icon>calendar_today</mat-icon>
-        <span>Calendar</span>
-      </button>
-      <button mat-button class="menu-button" routerLink="/plots">
-        <mat-icon>account_balance_wallet</mat-icon>
-        <span>Plots</span>
-      </button>
-      <button mat-button class="menu-button" routerLink="/forecast">
-        <mat-icon>cloud_queue</mat-icon>
-        <span>Forecast</span>
-      </button>
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-      <div class="content mat-elevation-z8">
-        <router-outlet></router-outlet>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+  <app-layout>
+    <router-outlet></router-outlet>
+  </app-layout>
 </ng-container>
 
 <ng-template #routerOutlet>
