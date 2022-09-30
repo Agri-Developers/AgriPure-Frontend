@@ -8,6 +8,7 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
 import { ForecastComponent } from './pages/forecast/forecast.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PlotsComponent } from './pages/plots/plots.component';
+import {DetailsComponent} from "./pages/details/details.component";
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
     path: 'plots',
     component: PlotsComponent,
   },
+  {
+    path: 'details',
+    component: DetailsComponent,
+  }
 ];
 
 @NgModule({
