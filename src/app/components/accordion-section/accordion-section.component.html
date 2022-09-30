@@ -2,23 +2,30 @@
   <mat-expansion-panel style="background: rgb(33, 33, 33); color: white; border-bottom: 2px solid rgb(255, 255, 255);">
     <mat-expansion-panel-header>
       <mat-panel-title style="color: rgb(255, 255, 255)">
-        Fertilización y Fumigación
+        Land Type
       </mat-panel-title>
     </mat-expansion-panel-header>
-    Fertilization:
-    Fertilizing at the right time is crucial to getting the most out of your cauliflower crops. In general,
-    you should pay once every two weeks during periods of active growth. In the case of transplants,
-    pay once before the transplant and again two weeks after.
+    Cauliflower is grown in a wide variety of soils. The best results are obtained in loamy, deep soils with
+    a good content of organic matter. Cauliflower is very sensitive to soil acidity, it develops well in soils
+    with a pH between 5.5 and 6.5.
     <br><br>
-    Fumigation:
-    This plant should be fumigated every 3-5 weeks in order to isolate them from mosquitoes and other pests,
-    this by spraying the fumigation on the plant itself. On the other hand, drenching the soil with
-    insecticide can prevent the formation of larvae for a period of 7 weeks.
-    <br><br>
-    <div class="buttons-accordion">
-      <button mat-flat-button>Generar fechas de fumigacion</button>
-      <button mat-flat-button>Generar fechas de fertilizacion</button>
+    <div class="ph-container">
+      <div class="ph">
+          <div *ngFor="let ph of indexPh" class="index-ph">
+              <div [style.background-color]="ph.color" #panelIndexPh></div>
+              <p>{{ph.index}}</p>
+          </div>
+          <div class="current-ph"
+          [ngStyle]="{'left': 'calc((100% * ' + currentPh + '/15) - 4px)'}"
+          ></div>
+      </div>
+      <div class="ph-type">
+          <h4>ACID</h4>
+          <h4>ALKALINE</h4>
+      </div>
     </div>
+    <br>
+    <br>
 
   </mat-expansion-panel>
 
