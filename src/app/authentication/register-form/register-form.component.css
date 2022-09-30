@@ -2,6 +2,7 @@
   width: 100%;
   height: 100%;
   background-color: rgb(44, 43, 43);
+  display: grid;
 }
 
 .form-container {
@@ -9,6 +10,8 @@
   justify-content: center;
   width: 100%;
   padding: 1rem 0;
+  justify-self: center;
+  align-self: center;
 }
 
 mat-card {
@@ -19,6 +22,7 @@ mat-card {
   max-width: 32rem;
   margin: 0 1rem;
   padding: 2rem 0;
+  border-radius:20px;
 }
 
 mat-card-header {
