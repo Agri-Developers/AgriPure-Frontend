@@ -77,3 +77,28 @@
   top: -5px;
   width: calc((100% / 15) + 2px);
 }
+
+/* Planting Distance */
+
+.sep{
+  display: flex;
+  color: white;
+  margin: auto;
+}
+.img-move-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  margin: auto;
+}
+.img-move-wrapper p{
+  font-size: 1rem;
+  color: white;
+  position: absolute;
+  top: 39%;
+  left: 46.5%;
+  transform: translate(-50%,-50%);
+}
+.right{
+  float: right;
+}
