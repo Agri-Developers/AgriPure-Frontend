@@ -21,6 +21,10 @@ import { LogInComponent } from './authentication/log-in/log-in.component';
 import { PlansComponent } from './authentication/plans/plans.component';
 import { PlantsComponent } from './pages/plants/plants.component';
 import { LayoutComponent } from './shared/layout/layout.component';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+import { ForecastComponent } from './pages/forecast/forecast.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { PlotsComponent } from './pages/plots/plots.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { LayoutComponent } from './shared/layout/layout.component';
     LogInComponent,
     PlansComponent,
     PlantsComponent,
-    LayoutComponent
+    LayoutComponent,
+    CalendarComponent,
+    ForecastComponent,
+    NotFoundComponent,
+    PlotsComponent
   ],
   imports: [
     BrowserModule,

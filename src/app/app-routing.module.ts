@@ -4,12 +4,16 @@ import { LogInComponent } from './authentication/log-in/log-in.component';
 import { RegisterFormComponent } from './authentication/register-form/register-form.component';
 import { PlansComponent } from './authentication/plans/plans.component';
 import { PlantsComponent } from './pages/plants/plants.component';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+import { ForecastComponent } from './pages/forecast/forecast.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { PlotsComponent } from './pages/plots/plots.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'plants',
+    redirectTo: 'accounts/login',
   },
   {
     path: 'accounts/login',
@@ -26,6 +30,22 @@ const routes: Routes = [
   {
     path: 'plants',
     component: PlantsComponent,
+  },
+  {
+    path: 'calendar',
+    component: CalendarComponent,
+  },
+  {
+    path: 'forecast',
+    component: ForecastComponent,
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+  },
+  {
+    path: 'plots',
+    component: PlotsComponent,
   },
 ];
 
