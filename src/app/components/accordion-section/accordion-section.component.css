@@ -100,5 +100,48 @@
   .div-termometer{
     display: grid;
     grid-template-columns: 1fr 1fr;
+   }
+}
+
+/* Planting Distance */
+
+.sep{
+  display: flex;
+  color: white;
+  margin: auto;
+}
+.img-move-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  margin: auto;
+}
+.img-move-wrapper p{
+  font-size: 1rem;
+  color: white;
+  position: absolute;
+  top: 39%;
+  left: 46.5%;
+  transform: translate(-50%,-50%);
+}
+.right{
+  float: right;
+}
+
+/* Ideal Depth */
+@media (min-width: 0px){
+  .img-move {
+  position: absolute;
+  width: 23.5%;
+  left: 35%;
+  }
+  .img-move-rect {
+  left: 35%;
+  bottom: 20%;
+  }
+  .img-move-bean {
+  left: 44.5%;
+  bottom: 22%;
+  width: 5%;
   }
 }
