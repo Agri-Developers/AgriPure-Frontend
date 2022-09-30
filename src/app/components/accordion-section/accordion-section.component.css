@@ -78,6 +78,31 @@
   width: calc((100% / 15) + 2px);
 }
 
+@media (max-width: 700px){
+  .buttons-accordion{
+    display: flex;
+    flex-direction: column;
+  }
+  .mat-flat-button{
+    width: fit-content;
+  }
+  .termometer{
+    grid-column: 3/4;
+    justify-self: start;
+    width: 40vw;
+    height: 20vh;
+  }
+  .temperature{
+    font-size: 20px;
+    width: 20vw;
+    text-align: center;
+  }
+  .div-termometer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+   }
+}
+
 /* Planting Distance */
 
 .sep{
