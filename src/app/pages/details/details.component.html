@@ -2,14 +2,14 @@
   <div class="info">
     <h1 class="head-details">Details of {{plant.name}}</h1>
     <div class="subtitles">
-      <h1 class="">Scientific name: {{plant.scientifistname}}</h1>
-      <h1>Variety: {{plant.variety}}</h1>
+      <h1 class="sub-text">Scientific name: {{plant.scientifistname}}</h1>
+      <h1 class="sub-text">Variety: {{plant.variety}}</h1>
     </div>
   </div>
 
   <div class="imgs">
-    <img [src]="plant.image" alt="">
-    <img [src]="plant.image" alt="">
+    <img [src]="plant.image" alt="plant image">
+    <img [src]="plant.image" alt="plant image">
   </div>
 
   <app-accordion-section></app-accordion-section>

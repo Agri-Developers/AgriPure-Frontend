@@ -2,7 +2,7 @@
   text-align: start;
   font-size: 50px;
   color: white;
-  font-style: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #green{
@@ -50,4 +50,26 @@ img{
 
 .subtitles{
   margin-top: 15px;
+}
+
+@media (max-width: 700px){
+  .head-details{
+    text-align: start;
+    font-size: 35px;
+    line-height: 50px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .sub-text{
+    font-size: 20px;
+  }
+  .imgs{
+    /*margin-left: 9vw;*/
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  img{
+    width: 60vw;
+    height: 15vh;
+  }
 }
