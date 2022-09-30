@@ -72,4 +72,12 @@ img{
     width: 60vw;
     height: 15vh;
   }
+  .buttons-retadd{
+    display: flex;
+    flex-direction: column;
+  }
+  .mat-flat-button{
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
