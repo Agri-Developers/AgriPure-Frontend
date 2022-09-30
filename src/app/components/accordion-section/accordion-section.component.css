@@ -102,3 +102,21 @@
 .right{
   float: right;
 }
+
+/* Ideal Depth */
+@media (min-width: 0px){
+  .img-move {
+  position: absolute;
+  width: 23.5%;
+  left: 35%;
+  }
+  .img-move-rect {
+  left: 35%;
+  bottom: 20%;
+  }
+  .img-move-bean {
+  left: 44.5%;
+  bottom: 22%;
+  width: 5%;
+  }
+}
