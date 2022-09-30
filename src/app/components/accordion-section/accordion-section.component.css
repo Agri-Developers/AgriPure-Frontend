@@ -1,0 +1,40 @@
+.mat-accordion{
+  display: grid;
+  margin: auto;
+  width: 90%;
+  margin-top: 2%;
+}
+
+.buttons-accordion{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  gap: 8%;
+}
+
+.mat-flat-button{
+  margin:10px;
+  width: 50%;
+  background-color: rgba(47, 153, 47, 1);
+  color: white;
+  font-style: bold;
+}
+
+.div-termometer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.termometer{
+  grid-column: 3/4;
+  justify-self: start;
+  width: 20vw;
+  height: 40vh;
+}
+
+.temperature{
+  grid-column: 2/3;
+  align-self: center;
+  justify-self: center;
+  font-size: 50px;
+}
