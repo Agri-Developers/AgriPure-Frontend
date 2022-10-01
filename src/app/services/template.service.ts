@@ -7,7 +7,7 @@ import {catchError, Observable, retry, throwError} from "rxjs";
 })
 export class TemplateService<T> {
 
-  basePath = 'http://localhost:3000';
+  basePath = 'http://localhost:3000/$1/';
 
   httpOptions = {
     headers: new HttpHeaders({
