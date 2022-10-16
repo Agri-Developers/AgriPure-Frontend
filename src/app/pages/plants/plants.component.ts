@@ -10,10 +10,12 @@ import {Plants} from "./model/Plants";
 export class PlantsComponent implements OnInit {
 
   plants: Plants[] = [];
+
   constructor(private plantsService: PlantsService) { }
 
   ngOnInit(): void {
     this.plantsService.getAll().subscribe((response: any) => {this.plants = response});
   }
+
 
 }

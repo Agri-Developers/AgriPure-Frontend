@@ -6,13 +6,12 @@
 <p>Similar result:</p>
 <div class="cards">
   <mat-card *ngFor="let plant of plants" class="example-card">
-
     <img mat-card-image [src]="plant.image" alt="Photo of plant"
          class="img-card">
     <mat-card-title>{{plant.name}}</mat-card-title>
     <mat-card-actions>
-      <button mat-button class="button-details" routerLink="/details"> Details</button>
+      <button mat-button class="button-details" [routerLink]="['/details', plant.id]">Details</button>
     </mat-card-actions>
   </mat-card>
-
 </div>
+

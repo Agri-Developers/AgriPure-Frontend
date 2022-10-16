@@ -18,7 +18,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 
 // componentes
 import { LogInComponent } from './authentication/log-in/log-in.component';
@@ -31,6 +31,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PlotsComponent } from './pages/plots/plots.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { AccordionSectionComponent } from './components/accordion-section/accordion-section.component';
+import { DialogSavePlantComponent } from './components/dialog-save-plant/dialog-save-plant.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AccordionSectionComponent } from './components/accordion-section/accord
     NotFoundComponent,
     PlotsComponent,
     DetailsComponent,
-    AccordionSectionComponent
+    AccordionSectionComponent,
+    DialogSavePlantComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,15 @@ import { AccordionSectionComponent } from './components/accordion-section/accord
     MatDialogModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    }
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogSavePlantComponent
+  ]
 })
 export class AppModule { }
