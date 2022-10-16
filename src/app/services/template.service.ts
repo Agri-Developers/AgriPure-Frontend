@@ -7,7 +7,7 @@ import {catchError, Observable, retry, throwError} from "rxjs";
 })
 export class TemplateService<T> {
 
-  basePath = 'http://localhost:3000';
+  basePath = 'http://localhost:3000/';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -59,5 +59,10 @@ export class TemplateService<T> {
     return this.http.put<T>(`${this.basePath}/${id}`,
       JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
+  }
+
+  patch(id: any, item: any): Observable<T> {
+    return this.http.patch<T>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+    .pipe(retry(2), catchError(this.handleError));
   }
 }

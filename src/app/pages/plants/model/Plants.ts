@@ -13,4 +13,5 @@ export interface Plants{
     infoWeatherConditions: string;
     weather: string;
     infoFertFumig: string;
+    savePlant: boolean;
 }

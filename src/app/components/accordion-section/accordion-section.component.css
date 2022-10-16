@@ -27,9 +27,11 @@
 
 .termometer{
   grid-column: 3/4;
+  grid-row: 1;
   justify-self: start;
   width: 20vw;
   height: 40vh;
+  position: static;
 }
 
 .temperature{
@@ -37,6 +39,15 @@
   align-self: center;
   justify-self: center;
   font-size: 50px;
+}
+
+.progreso{
+  grid-column: 3/4;
+  grid-row: 1;
+  position: relative;
+  transform: rotate(270deg);
+  justify-self: center;
+  align-self: center;
 }
 
 /* Land Type */

@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import {PlantsService} from "../../pages/plants/service/plants.service"
+import {Plants} from "../../pages/plants/model/Plants";
 
 @Component({
   selector: 'app-accordion-section',
   templateUrl: './accordion-section.component.html',
   styleUrls: ['./accordion-section.component.css']
 })
-export class AccordionSectionComponent implements OnInit {
+export class AccordionSectionComponent implements OnInit, OnChanges {
 
   indexPh:Array<any> = [
     { index: 0, color: '#F70000' },
@@ -25,9 +27,34 @@ export class AccordionSectionComponent implements OnInit {
     { index: 14, color: '#4D02AC' }
   ];
   currentPh: number = 4;
-  constructor() { }
+
+  @Input() id?:number;
+
+  plant: Plants = {
+    id: 0,
+    name: "",
+    scientifistname: "",
+    distancePlants: "",
+    image: "",
+    weather: "",
+    variety: "",
+    infoWeatherConditions: "",
+    depth: "",
+    infoDistanceBetween: "",
+    infoIdealDepth: "",
+    infolandType: "",
+    infoFertFumig: "",
+    ph: 0,
+    savePlant: false
+  };
+
+  constructor(private plantsService: PlantsService) { }
 
   ngOnInit(): void {
+
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.plantsService.getById(this.id).subscribe((response: any) => {this.plant = response});
+  }
 }

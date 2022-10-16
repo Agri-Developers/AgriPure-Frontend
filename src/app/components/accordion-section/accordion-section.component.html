@@ -5,9 +5,7 @@
         Land Type
       </mat-panel-title>
     </mat-expansion-panel-header>
-    Cauliflower is grown in a wide variety of soils. The best results are obtained in loamy, deep soils with
-    a good content of organic matter. Cauliflower is very sensitive to soil acidity, it develops well in soils
-    with a pH between 5.5 and 6.5.
+    {{plant.infolandType}}
     <br><br>
     <div class="ph-container">
       <div class="ph">
@@ -16,7 +14,7 @@
               <p>{{ph.index}}</p>
           </div>
           <div class="current-ph"
-          [ngStyle]="{'left': 'calc((100% * ' + currentPh + '/15) - 4px)'}"
+          [ngStyle]="{'left': 'calc((100% * ' + plant.ph + '/15) - 4px)'}"
           ></div>
       </div>
       <div class="ph-type">
@@ -35,8 +33,7 @@
         Planting distance between plants
       </mat-panel-title>
     </mat-expansion-panel-header>
-    Planting distances vary according to the time of year in which it is planted; in the dry season it can be
-    sown at 50 cm between plants and 60 cm between rows and in the rainy season it is advisable to widen the distance between rows to 80 cm.
+    {{plant.infoDistanceBetween}}
     <br><br>
     <div class="img-move-wrapper">
       <img src="assets/images/image_8.png">
@@ -99,6 +96,7 @@
     <div class="div-termometer">
       <h1 class="temperature">15° C</h1>
       <img class="termometer" src="assets/images/termometer.png" alt="termometro">
+      <progress class="progreso" max="50" value="15"></progress>
     </div>
   </mat-expansion-panel>
   <mat-expansion-panel style="background: rgb(33, 33, 33); color: white; border-bottom: 2px solid rgb(255, 255, 255);">

@@ -49,7 +49,7 @@ const routes: Routes = [
     component: PlotsComponent,
   },
   {
-    path: 'details',
+    path: 'details/:id',
     component: DetailsComponent,
   }
 ];
