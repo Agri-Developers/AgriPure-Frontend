@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import {PlantsService} from "../plants/service/plants.service";
 import {Plants} from "../plants/model/Plants";
+import { ActivatedRoute } from '@angular/router';
+import { DialogSavePlantComponent } from 'src/app/components/dialog-save-plant/dialog-save-plant.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, OnChanges {
+
+  private sub: any;
 
   plant: Plants = {
     id: 0,
@@ -23,28 +28,37 @@ export class DetailsComponent implements OnInit {
     infoIdealDepth: "",
     infolandType: "",
     infoFertFumig: "",
-    ph: 0
+    ph: 0,
+    savePlant: true
   };
-  /*id: number = 0;*/
-  addPlant = true;
-  nameButton: String = "Agregar Planta";
-  ID: String = "green";
-  ChangeButton(){
-    if(this.addPlant){
-      this.nameButton = "Eliminar Planta";
-      this.addPlant = false;
-      this.ID = "red";
-    }
-    else{
-      this.nameButton = "Agregar Planta";
-      this.addPlant = true;
-      this.ID = "green"
-    }
+
+  plantId?: Number;
+  nameButton?: String;
+  ID?: String;
+  save_plant?: boolean;
+
+  constructor(private plantsService: PlantsService, private route: ActivatedRoute, public dialog: MatDialog) {
+    this.sub = this.route.params.subscribe(params => { this.plantId = +params['id']; });
+    this.plantsService.getById(this.plantId).subscribe((response: any) => {this.plant = response});
   }
 
-  constructor(private plantsService: PlantsService) { }
-
   ngOnInit(): void {
-    this.plantsService.getById(this.plant.id).subscribe((response: any) => {this.plant = response});
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+
+  }
+
+  showDialog(){
+    const dialogRef = this.dialog.open(DialogSavePlantComponent, {
+      width: '450px',
+      height: '200px',
+      data: {
+        id: this.plant.id
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result=>{window.location.reload()});
+
   }
 }
