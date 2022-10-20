@@ -19,6 +19,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+//date
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 // componentes
 import { LogInComponent } from './authentication/log-in/log-in.component';
@@ -67,7 +73,12 @@ import { DialogSavePlantComponent } from './components/dialog-save-plant/dialog-
     MatDividerModule,
     MatExpansionModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     {
