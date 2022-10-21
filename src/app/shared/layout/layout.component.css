@@ -62,3 +62,9 @@ mat-icon {
   margin-top: 8px;
   font-weight: normal;
 }
+
+.mat-button .mat-menu-trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
