@@ -22,6 +22,8 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
 //date
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -38,6 +40,9 @@ import { PlotsComponent } from './pages/plots/plots.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { AccordionSectionComponent } from './components/accordion-section/accordion-section.component';
 import { DialogSavePlantComponent } from './components/dialog-save-plant/dialog-save-plant.component';
+import { DialogChangePasswordComponent } from './components/dialog-change-password/dialog-change-password.component';
+import { DialogSignOffComponent } from './components/dialog-sign-off/dialog-sign-off.component';
+import { DialogChangeEmailComponent } from './components/dialog-change-email/dialog-change-email.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +59,9 @@ import { DialogSavePlantComponent } from './components/dialog-save-plant/dialog-
     DetailsComponent,
     AccordionSectionComponent,
     DialogSavePlantComponent,
+    DialogChangePasswordComponent,
+    DialogSignOffComponent,
+    DialogChangeEmailComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +86,9 @@ import { DialogSavePlantComponent } from './components/dialog-save-plant/dialog-
     MatNativeDateModule,
     MatSortModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatMenuModule,
+    MatTabsModule
   ],
   providers: [
     {
