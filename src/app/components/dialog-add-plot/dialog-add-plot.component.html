@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Add Plot</h1>
+
+<h3>Select one of your saved plants: </h3>
+
+          <mat-radio-button class="example-margin" value="after">Cauliflower</mat-radio-button>
+          <mat-radio-button class="example-margin" value="before">Lettuce</mat-radio-button>
+          <mat-radio-button class="example-margin" value="before">Potato</mat-radio-button>
+<br>
+<h2>Insert your direcction: </h2>
+
+<mat-dialog-content class="text">
+    <h3>Latitud:</h3>
+    <mat-form-field appearance="outline" class="bg">
+        <input matInput [(ngModel)]="coordinates" matInput style="color: black;"/>
+    </mat-form-field>
+    <h3>Longitud:</h3>
+    <mat-form-field appearance="outline" class="bg">
+        <input matInput [(ngModel)]="coordinates" matInput style="color: black;"/>
+    </mat-form-field>
+    <p>To know your latitude and longitude, you can use <a href="#" style="color: brown;">Google Maps</a></p>
+</mat-dialog-content>
+
+    
+
+<div mat-dialog-actions style="display: grid; grid-template-columns: 1fr 1fr;">
+    <button mat-raised-button (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button mat-dialog-close style="background-color: #148414;">Add</button>
+</div>

@@ -43,6 +43,12 @@ import { DialogSavePlantComponent } from './components/dialog-save-plant/dialog-
 import { DialogChangePasswordComponent } from './components/dialog-change-password/dialog-change-password.component';
 import { DialogSignOffComponent } from './components/dialog-sign-off/dialog-sign-off.component';
 import { DialogChangeEmailComponent } from './components/dialog-change-email/dialog-change-email.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { DialogDeleteParcelComponent } from './components/dialog-delete-parcel/dialog-delete-parcel.component';
+import { DialogAddPlotComponent } from './components/dialog-add-plot/dialog-add-plot.component';
+import { DialogEditCoordinatesComponent } from './components/dialog-edit-coordinates/dialog-edit-coordinates.component'
+
+
 
 @NgModule({
   declarations: [
@@ -62,6 +68,9 @@ import { DialogChangeEmailComponent } from './components/dialog-change-email/dia
     DialogChangePasswordComponent,
     DialogSignOffComponent,
     DialogChangeEmailComponent,
+    DialogDeleteParcelComponent,
+    DialogAddPlotComponent,
+    DialogEditCoordinatesComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +97,8 @@ import { DialogChangeEmailComponent } from './components/dialog-change-email/dia
     MatTableModule,
     MatPaginatorModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+    GoogleMapsModule
   ],
   providers: [
     {
