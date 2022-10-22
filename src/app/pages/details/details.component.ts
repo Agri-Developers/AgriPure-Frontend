@@ -52,7 +52,6 @@ export class DetailsComponent implements OnInit, OnChanges {
   showDialog(){
     const dialogRef = this.dialog.open(DialogSavePlantComponent, {
       width: '450px',
-      height: '200px',
       data: {
         id: this.plant.id
       }

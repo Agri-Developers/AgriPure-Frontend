@@ -19,6 +19,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
+//date
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 // componentes
 import { LogInComponent } from './authentication/log-in/log-in.component';
@@ -32,6 +40,15 @@ import { PlotsComponent } from './pages/plots/plots.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { AccordionSectionComponent } from './components/accordion-section/accordion-section.component';
 import { DialogSavePlantComponent } from './components/dialog-save-plant/dialog-save-plant.component';
+import { DialogChangePasswordComponent } from './components/dialog-change-password/dialog-change-password.component';
+import { DialogSignOffComponent } from './components/dialog-sign-off/dialog-sign-off.component';
+import { DialogChangeEmailComponent } from './components/dialog-change-email/dialog-change-email.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { DialogDeleteParcelComponent } from './components/dialog-delete-parcel/dialog-delete-parcel.component';
+import { DialogAddPlotComponent } from './components/dialog-add-plot/dialog-add-plot.component';
+import { DialogEditCoordinatesComponent } from './components/dialog-edit-coordinates/dialog-edit-coordinates.component'
+
+
 
 @NgModule({
   declarations: [
@@ -48,6 +65,12 @@ import { DialogSavePlantComponent } from './components/dialog-save-plant/dialog-
     DetailsComponent,
     AccordionSectionComponent,
     DialogSavePlantComponent,
+    DialogChangePasswordComponent,
+    DialogSignOffComponent,
+    DialogChangeEmailComponent,
+    DialogDeleteParcelComponent,
+    DialogAddPlotComponent,
+    DialogEditCoordinatesComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +90,15 @@ import { DialogSavePlantComponent } from './components/dialog-save-plant/dialog-
     MatDividerModule,
     MatExpansionModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatMenuModule,
+    MatTabsModule,
+    GoogleMapsModule
   ],
   providers: [
     {
