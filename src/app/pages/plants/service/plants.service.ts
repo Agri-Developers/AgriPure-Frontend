@@ -1,7 +1,7 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
-import {TemplateService} from "../../../services/template.service";
-import {Plants} from "../model/Plants";
-import {HttpClient} from "@angular/common/http";
+import { TemplateService } from "../../../services/template.service";
+import { Plants } from "../model/Plants";
 
 @Injectable({
   providedIn: 'root'

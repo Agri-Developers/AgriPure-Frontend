@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {PlantsService} from "./service/plants.service";
-import {Plants} from "./model/Plants";
+import { Component, OnInit } from '@angular/core';
+import { Plants } from "./model/Plants";
+import { PlantsService } from "./service/plants.service";
 
 @Component({
   selector: 'app-plants',

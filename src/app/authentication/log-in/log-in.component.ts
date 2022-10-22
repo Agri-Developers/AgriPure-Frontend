@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
+import { Users } from './model/users';
 
 @Component({
   selector: 'app-log-in',
@@ -11,17 +13,40 @@ export class LogInComponent {
   submitted = false;
   hide = true;
 
+  usersList: Users[] = [];
+
   loginForm = this.formBuilder.group({
     // [lo que debe Tener, {[validaciones], updateOn: 'change'}]
     email: ['', {validators: [Validators.required, Validators.email], updateOn: 'change'}],
     password: ['', {validators: [Validators.required, Validators.minLength(8)], updateOn: 'change'}],
   })
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UsersService) { }
+
+  ngOnInit(): void {
+    this.userService.getAll().subscribe((response: any) => {this.usersList = response});
+  }
 
   submitForm() {
     //cuando se haga submit ir al dashboard
-    if (this.loginForm.invalid) return;
-    this.router.navigate(['/']);
+    if (this.usersList.find((user: Users) => { return user.email == this.loginForm?.get('email')?.value && user.password == this.loginForm?.get('password')?.value})) {
+      this.router.navigate(['/plants']);
+      return;
+    }
+
+    alert("An error has ocurred");
+  }
+  getErrorEmailMessage() {
+    if(this.loginForm?.get('email')?.hasError('email')) {
+      return "Please, enter a valid email address";
+    }
+    return "Please, enter an email address";
+  }
+
+  getErrorPasswordMessage() {
+    if(this.loginForm?.get('password')?.hasError('minlength')) {
+      return "Please, enter a password at least 8 characters";
+    }
+    return "Please, enter a password";
   }
 }
