@@ -23,8 +23,10 @@ export class DialogSavePlantComponent implements OnInit, OnChanges {
     infoDistanceBetween: "",
     infoIdealDepth: "",
     infolandType: "",
-    infoFertFumig: "",
     ph: 0,
+    infoFertFumig: "",
+    intervaleFert: 0,
+    intervaleFumig: 0,
     savePlant: false
   };
 

@@ -46,7 +46,8 @@ import { DialogChangeEmailComponent } from './components/dialog-change-email/dia
 import { GoogleMapsModule } from '@angular/google-maps';
 import { DialogDeleteParcelComponent } from './components/dialog-delete-parcel/dialog-delete-parcel.component';
 import { DialogAddPlotComponent } from './components/dialog-add-plot/dialog-add-plot.component';
-import { DialogEditCoordinatesComponent } from './components/dialog-edit-coordinates/dialog-edit-coordinates.component'
+import { DialogEditCoordinatesComponent } from './components/dialog-edit-coordinates/dialog-edit-coordinates.component';
+import { DialogConfirmationComponent } from './components/dialog-confirmation/dialog-confirmation.component'
 
 
 
@@ -71,6 +72,7 @@ import { DialogEditCoordinatesComponent } from './components/dialog-edit-coordin
     DialogDeleteParcelComponent,
     DialogAddPlotComponent,
     DialogEditCoordinatesComponent,
+    DialogConfirmationComponent,
   ],
   imports: [
     BrowserModule,

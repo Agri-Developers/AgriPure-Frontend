@@ -1,4 +1,5 @@
-<h1 mat-dialog-title>Save Plant</h1>
+<h1 *ngIf="plant.savePlant; else elseTitle" mat-dialog-title>Delete Plant</h1>
+<ng-template #elseTitle><h1>Save Plant</h1></ng-template>
 <mat-dialog-content class="text">
     <h2 *ngIf="plant.savePlant; else elseBlock">Do you want unsave {{plant.name}}?</h2>
     <ng-template #elseBlock>Do you want save {{plant.name}}?</ng-template>

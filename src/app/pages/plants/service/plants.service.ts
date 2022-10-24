@@ -10,6 +10,6 @@ export class PlantsService extends TemplateService<Plants>{
 
   constructor(http: HttpClient) {
     super(http);
-    this.basePath = 'http://localhost:3000/plants'
+    this.basePath = 'http://localhost:3000/api/v1/plants'
    }
 }

@@ -27,9 +27,11 @@ export class DetailsComponent implements OnInit, OnChanges {
     infoDistanceBetween: "",
     infoIdealDepth: "",
     infolandType: "",
-    infoFertFumig: "",
     ph: 0,
-    savePlant: true
+    infoFertFumig: "",
+    intervaleFert: 0,
+    intervaleFumig: 0,
+    savePlant: false
   };
 
   plantId?: Number;
