@@ -102,7 +102,7 @@
   <mat-expansion-panel style="background: rgb(33, 33, 33); color: white; border-bottom: 2px solid rgb(255, 255, 255);">
     <mat-expansion-panel-header>
       <mat-panel-title style="color: rgb(255, 255, 255)">
-        Fertilización y Fumigación
+        Fertilization y Fumigation
       </mat-panel-title>
     </mat-expansion-panel-header>
     Fertilization:
@@ -116,8 +116,8 @@
     insecticide can prevent the formation of larvae for a period of 7 weeks.
     <br><br>
     <div class="buttons-accordion">
-      <button mat-flat-button>Generar fechas de fumigacion</button>
-      <button mat-flat-button>Generar fechas de fertilizacion</button>
+      <button mat-flat-button (click)="addEventFumig()">Generate dates of fumigation</button>
+      <button mat-flat-button (click)="addEventFert()">Generate dates of fertilization</button>
     </div>
 
   </mat-expansion-panel>

@@ -1,6 +1,10 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import {PlantsService} from "../../pages/plants/service/plants.service"
 import {Plants} from "../../pages/plants/model/Plants";
+import { EventService } from 'src/app/pages/calendar/services/event.service';
+import { ToDo } from 'src/app/pages/calendar/model/Event';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
 
 @Component({
   selector: 'app-accordion-section',
@@ -26,6 +30,11 @@ export class AccordionSectionComponent implements OnInit, OnChanges {
     { index: 13, color: '#5200FF' },
     { index: 14, color: '#4D02AC' }
   ];
+
+  eventData: ToDo;
+
+  actualDate: Date;
+
   currentPh: number = 4;
 
   @Input() id?:number;
@@ -43,12 +52,18 @@ export class AccordionSectionComponent implements OnInit, OnChanges {
     infoDistanceBetween: "",
     infoIdealDepth: "",
     infolandType: "",
-    infoFertFumig: "",
     ph: 0,
+    infoFertFumig: "",
+    intervaleFert: 0,
+    intervaleFumig: 0,
     savePlant: false
   };
 
-  constructor(private plantsService: PlantsService) { }
+  constructor(private plantsService: PlantsService, private eventService: EventService, private dialog: MatDialog) {
+      this.eventData = {} as ToDo;
+      this.actualDate = new Date();
+      this.actualDate.setHours(0,0,0,0);
+   }
 
   ngOnInit(): void {
 
@@ -56,5 +71,36 @@ export class AccordionSectionComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.plantsService.getById(this.id).subscribe((response: any) => {this.plant = response});
+  }
+
+  addEventFert(){
+    for (let index = 0; index < 3; index++) {
+      this.eventData.id = 0;
+      this.eventData.date = this.plusDays(this.actualDate, index);
+      this.eventData.description = (index+1).toString() + "° Fertilization of " + this.plant.name;
+      this.eventService.create(this.eventData).subscribe();
+    }
+    this.showDialog();
+  }
+
+  addEventFumig(){
+    for (let index = 0; index < 3; index++) {
+      this.eventData.id = 0;
+      this.eventData.date = this.plusDays(this.actualDate, index);
+      this.eventData.description = (index+1).toString() + "° Fumigation of " + this.plant.name;
+      this.eventService.create(this.eventData).subscribe();
+    }
+    this.showDialog();
+  }
+
+  plusDays(date: Date, days: number){
+    date.setDate(date.getDate() + 7*this.plant.intervaleFert*days);
+    return date;
+  }
+
+  showDialog(){
+    const dialogRef = this.dialog.open(DialogConfirmationComponent, {
+      width: '450px'
+    });
   }
 }
