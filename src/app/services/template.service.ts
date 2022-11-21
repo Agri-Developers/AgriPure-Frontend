@@ -10,15 +10,14 @@ import { catchError, Observable, retry, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class TemplateService<T> {
-  basePath = 'http://localhost:3000/';
-
+  basePath = 'http://localhost:8080/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(public http: HttpClient) {}
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
