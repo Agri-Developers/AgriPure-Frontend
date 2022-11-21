@@ -11,7 +11,6 @@ import { catchError, Observable, retry, throwError } from 'rxjs';
 })
 export class TemplateService<T> {
   basePath = 'http://localhost:8080/';
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
