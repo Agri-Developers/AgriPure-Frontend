@@ -12,6 +12,7 @@ import { DialogAddPlotComponent } from 'src/app/components/dialog-add-plot/dialo
 })
 export class PlotsComponent implements OnInit {
 
+  name: string | undefined;
   plots: Plot[] = [];
   plotsView: Plot[] = [];
 
@@ -23,18 +24,20 @@ export class PlotsComponent implements OnInit {
     this.plotsService.getAll().subscribe((response: any) => {this.plotsView = response});
   }
 
-   openDialogAddPlot(){
+   openDialogAddPlot(): void {
      const dialogRef = this.dialog.open(DialogAddPlotComponent, {
-       width: '400px'
+       width: '400px',
+       data: {
+        plantName : this.name
+       }
      })
    }
+   openDialogDeleteParcel(){
+    const dialogRef = this.dialog.open(DialogDeleteParcelComponent, {
+    width: '400px',
+    data: {
+     }
+   })
+ }
+
 };
-//     openDialogDeleteParcel(){
-//       const dialogRef = this.dialog.open(DialogDeleteParcelComponent, {
-//       width: '400px',
-//       data: {
-
-//      }
-//    })
-//  }
-

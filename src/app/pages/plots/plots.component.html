@@ -1,21 +1,24 @@
 <h1>My Plots</h1>
+<button mat-button (click)="openDialogAddPlot()" class="button-green">+ Add plot</button>
 <mat-tab-group>
   <div *ngFor="let plot of plotsView" class="plots">
   <mat-tab label={{plot.plantName}}>
-    <button mat-button (click)="openDialogAddPlot()" class="button-green">+ Add plot</button>
     <div class="plot-information">
-      <h1>{{plot.plantName}}</h1>
+    <div class="static-information">
+      <!-- <h1>{{plot.plantName}}</h1> -->
       <h2>Size of the Plot in m<sup>2</sup> :</h2>
       <input disabled placeholder={{plot.size}}>
       <h2>Quantity of {{plot.plantName}} in the Plot:</h2>
       <input disabled placeholder={{plot.quantity}}>
     </div>
-    <div class="plot-direction">
-      <h2>Go to google maps for a better look of your direccion <mat-icon>arrow_downward</mat-icon></h2>
-      <a href="https://www.google.com/maps/@{{plot.longitude}},{{plot.latitude}}z?hl=es-ES">Let's see my plot ubication!</a>
-
-      <google-map [zoom]=14 height="250px" width="100%"></google-map>
+    <div class="title-button">
+      <h1>Lettuce plot</h1>
+      <button mat-button (click)="openDialogDeleteParcel()" class="button-red">Delete Parcel</button>
     </div>
+    </div>
+    <h2>Go to google maps for a better look of your direccion <mat-icon>arrow_downward</mat-icon></h2>
+    <a href="https://www.google.com/maps/@{{plot.longitude}},{{plot.latitude}}z?hl=es-ES">Let's see my plot ubication!</a>
+    <google-map [zoom]=14 height="250px" width="100%"></google-map>
   </mat-tab>
   </div>
 </mat-tab-group>

@@ -8,9 +8,10 @@ import { Plot } from 'src/app/pages/plots/model/Plot';
   styleUrls: ['./dialog-add-plot.component.css']
 })
 export class DialogAddPlotComponent implements OnInit {
-
-  plot: Plot[] = [];
-  constructor(public dialogRef: MatDialogRef<DialogAddPlotComponent>) {}
+  name: string = '';
+  
+  constructor(public dialogRef: MatDialogRef<DialogAddPlotComponent>) {
+  }
 
   ngOnInit(): void {
   }

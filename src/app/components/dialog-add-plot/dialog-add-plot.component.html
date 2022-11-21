@@ -1,23 +1,26 @@
-<h1 mat-dialog-title>Add Plot for</h1>
-<h2>Insert your direcction: </h2>
-
+<h1 mat-dialog-title>Add Plot for <input type="text" placeholder="Name of the plant" [(ngModel)]="name" /></h1>
+<h2>Insert your plot information: </h2>
 <mat-dialog-content class="text">
-  <h3>quantity:</h3>
-  <mat-form-field appearance="outline" class="bg">
-    <input matInput [(ngModel)]="plot.quantity" matInput style="color: black;"/>
-  </mat-form-field>
-    <h3>Latitud:</h3>
+  <h3>Size of the plot:</h3>
+  <!-- input -->
+  <h3>Quantity of plants on the plot:</h3>
+  <!-- input -->
+  <h3>Latitude:</h3>
+  <!-- input -->
+  <h3>Longitude:</h3>
+  <!-- input -->
+
+
+
     <mat-form-field appearance="outline" class="bg">
-        <input matInput [(ngModel)]="plot.latitude" matInput style="color: black;"/>
+        <!-- <input matInput [(ngModel)]="coordinates" matInput style="color: black;"/> -->
     </mat-form-field>
     <h3>Longitud:</h3>
     <mat-form-field appearance="outline" class="bg">
-        <input matInput [(ngModel)]="longitude" matInput style="color: black;"/>
+        <!-- <input matInput [(ngModel)]="coordinates" matInput style="color: black;"/> -->
     </mat-form-field>
-    <p>To know your latitude and longitude, you can use <a href="#" style="color: brown;">Google Maps</a></p>
+    <p>To know your latitude and longitude, you can use <a href="www.googlemaps.com" style="color: brown;">Google Maps</a></p>
 </mat-dialog-content>
-
-
 
 <div mat-dialog-actions style="display: grid; grid-template-columns: 1fr 1fr;">
     <button mat-raised-button (click)="onNoClick()">Cancel</button>
