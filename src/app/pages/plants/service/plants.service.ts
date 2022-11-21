@@ -1,15 +1,23 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TemplateService } from "../../../services/template.service";
-import { Plants } from "../model/Plants";
+import { catchError, Observable, retry, throwError } from 'rxjs';
+import { User } from 'src/app/authentication/model/User';
+import { TemplateService } from '../../../services/template.service';
+import { Plants } from '../model/Plants';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class PlantsService extends TemplateService<Plants>{
-
+export class PlantsService extends TemplateService<Plants> {
   constructor(http: HttpClient) {
     super(http);
-    this.basePath = 'http://localhost:3000/api/v1/plants'
-   }
+    this.basePath = 'http://localhost:8080/api/users/1/plants';
+  }
+
+  override getById(id: any): Observable<Plants> {
+    let urlPath = 'http://localhost:8080/api/plants';
+    return this.http
+      .get<Plants>(`${urlPath}/${id}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }
