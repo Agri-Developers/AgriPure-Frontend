@@ -17,6 +17,12 @@
       "email": "example456@gmail.com",
       "password": "example123",
       "id": 2
+    },
+    {
+      "username": "Ludwin",
+      "email": "example246@gmail.com",
+      "password": "123456789",
+      "id": 3
     }
   ],
   "plants": [

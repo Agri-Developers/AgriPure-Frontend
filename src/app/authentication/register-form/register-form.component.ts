@@ -18,10 +18,10 @@ export class RegisterFormComponent {
     username: ['', {validators: [Validators.required], updateOn: 'change'}],
     email: ['', {validators: [Validators.required, Validators.email], updateOn: 'change'}],
     password: ['', {validators: [Validators.required, Validators.minLength(8)], updateOn: 'change'}],
-    terms: [false, {validators: [Validators.requiredTrue], updateOn: 'change'}]
-  })
-
-
+    terms: [false, {validators: [Validators.requiredTrue], updateOn: 'change'}],
+    city: ['', {validators: [Validators.required], updateOn: 'change'}],
+    country:['', {validators: [Validators.required], updateOn: 'change'}]
+  });
 
   constructor(private formBuilder: FormBuilder, private userService: UsersService, private router: Router) {
   }
