@@ -190,5 +190,23 @@
       "date": "2022-11-07T05:00:00.000Z",
       "description": "2° Fertilization of Lemon"
     }
+  ],
+  "plot": [
+    {
+    "id": 1,
+    "plantName": "Lettuce",
+    "size": "14",
+    "quantity": "16",
+    "latitude": -11.614120,
+    "longitude": -77.230083
+    },
+    {
+      "id": 2,
+      "plantName": "Cauliflower",
+      "size": "20",
+      "quantity": "24",
+      "latitude": -11.614120,
+      "longitude": -77.230083
+      }
   ]
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Plot } from 'src/app/pages/plots/model/Plot';
 
 @Component({
   selector: 'app-dialog-add-plot',
@@ -7,8 +8,9 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
   styleUrls: ['./dialog-add-plot.component.css']
 })
 export class DialogAddPlotComponent implements OnInit {
-  coordinates?: string;
-  constructor(public dialogRef: MatDialogRef<DialogAddPlotComponent>) { }
+
+  plot: Plot[] = [];
+  constructor(public dialogRef: MatDialogRef<DialogAddPlotComponent>) {}
 
   ngOnInit(): void {
   }

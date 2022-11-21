@@ -18,7 +18,7 @@ export class PlantsComponent implements OnInit, OnChanges {
     this.plantsService.getAll().subscribe((response: any) => {this.plants = response});
   }
   ngOnChanges(changes: SimpleChanges): void {
-    
+
   }
 
   ngOnInit(): void {
