@@ -16,7 +16,7 @@ import { EventService } from './services/event.service';
 export class CalendarComponent implements OnInit {
   selected: Date;
 
-  userId = 5;
+  userId = 1;
 
   eventData: ToDo;
   dataSource: MatTableDataSource<ToDo>;
@@ -39,6 +39,9 @@ export class CalendarComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.getEventsbyDate();
+    this.eventService.getAll(this.userId).subscribe((response) => {
+      this.dataSource.data = response;
+    });
   }
 
   getEventsbyDate() {

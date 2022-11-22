@@ -13,7 +13,7 @@ import { ToDo } from '../model/Event';
 })
 export class EventService {
   //Event Endpoint
-  basePath = 'http://localhost:8080/api/events';
+  basePath = 'https://apppagripure.herokuapp.com/api/events';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -43,7 +43,7 @@ export class EventService {
 
   //Create Event
   create(userId: any, item: ToDo): Observable<ToDo> {
-    let urlPath = `http://localhost:8080/api/events/${userId}/`;
+    let urlPath = `https://apppagripure.herokuapp.com/api/events/${userId}/`;
     return this.http
       .post<ToDo>(urlPath, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
@@ -56,16 +56,16 @@ export class EventService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getAll(userId: any): Observable<ToDo> {
-    let urlPath = `http://localhost:8080/api/users/${userId}/events`;
+  getAll(userId: any): Observable<ToDo[]> {
+    let urlPath = `https://apppagripure.herokuapp.com/api/users/${userId}/events`;
     return this.http
-      .get<ToDo>(urlPath, this.httpOptions)
+      .get<ToDo[]>(urlPath, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   //Delete Event
   delete(id: any) {
-    let urlPath = `http://localhost:8080/api/events/${id}`;
+    let urlPath = `https://apppagripure.herokuapp.com/events/${id}`;
     return this.http
       .delete(urlPath, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));

@@ -43,6 +43,13 @@ export class PlantsService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  getAllPlantsByUserId(userId: any): Observable<Plants> {
+    let urlPath = `https://apppagripure.herokuapp.com/api/users/${userId}/plants`;
+    return this.http
+      .get<Plants>(urlPath, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   update(id: any, item: any): Observable<Plants> {
     return this.http
       .put<Plants>(
