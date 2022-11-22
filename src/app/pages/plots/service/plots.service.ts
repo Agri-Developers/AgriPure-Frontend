@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import {TemplateService} from "../../../services/template.service";
-import {Plants} from "../model/Plants";
+import { Plot } from '../model/Plot';
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
-export class PlantsService extends TemplateService<Plants>{
+export class PlotsService extends TemplateService<Plot>{
 
   constructor(http: HttpClient) {
     super(http);
-    this.basePath = 'http://localhost:3000/api/v1/plants'
+    this.basePath = 'http://localhost:3000/api/v1/plot'
    }
 }

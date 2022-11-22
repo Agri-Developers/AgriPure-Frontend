@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LogInComponent } from './authentication/log-in/log-in.component';
 import { RegisterFormComponent } from './authentication/register-form/register-form.component';
@@ -9,6 +9,7 @@ import { ForecastComponent } from './pages/forecast/forecast.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PlotsComponent } from './pages/plots/plots.component';
 import {DetailsComponent} from "./pages/details/details.component";
+import { DialogAddPlotComponent } from './components/dialog-add-plot/dialog-add-plot.component';
 
 const routes: Routes = [
   {
