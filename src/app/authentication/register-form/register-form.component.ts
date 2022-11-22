@@ -16,32 +16,16 @@ export class RegisterFormComponent {
   newUser!: User;
 
   registerForm = this.formBuilder.group({
-    username: ['', { validators: [Validators.required], updateOn: 'change' }],
-    email: [
-      '',
-      {
-        validators: [Validators.required, Validators.email],
-        updateOn: 'change',
-      },
-    ],
-    password: [
-      '',
-      {
-        validators: [Validators.required, Validators.minLength(8)],
-        updateOn: 'change',
-      },
-    ],
-    terms: [
-      false,
-      { validators: [Validators.requiredTrue], updateOn: 'change' },
-    ],
+    username: ['', {validators: [Validators.required], updateOn: 'change'}],
+    email: ['', {validators: [Validators.required, Validators.email], updateOn: 'change'}],
+    password: ['', {validators: [Validators.required, Validators.minLength(8)], updateOn: 'change'}],
+    terms: [false, {validators: [Validators.requiredTrue], updateOn: 'change'}],
+    city: ['', {validators: [Validators.required], updateOn: 'change'}],
+    country:['', {validators: [Validators.required], updateOn: 'change'}]
   });
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private userService: UsersService,
-    private router: Router
-  ) {}
+  constructor(private formBuilder: FormBuilder, private userService: UsersService, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.userService.getAll().subscribe((response: any) => {
