@@ -11,7 +11,7 @@ import { Plants } from '../model/Plants';
 export class PlantsService extends TemplateService<Plants> {
   constructor(http: HttpClient) {
     super(http);
-    this.basePath = 'http://localhost:8080/api/users/1/plants';
+    this.basePath = 'http://localhost:8080/api/users/5/plants';
   }
 
   override getById(id: any): Observable<Plants> {

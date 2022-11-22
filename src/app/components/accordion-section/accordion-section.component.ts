@@ -88,7 +88,7 @@ export class AccordionSectionComponent implements OnInit, OnChanges {
       this.eventData.date = this.plusDays(this.actualDate, index);
       this.eventData.description =
         (index + 1).toString() + '° Fertilization of ' + this.plant.name;
-      this.eventService.create(this.eventData).subscribe();
+      this.eventService.create(1, this.eventData).subscribe();
     }
     this.showDialog();
   }
@@ -99,7 +99,7 @@ export class AccordionSectionComponent implements OnInit, OnChanges {
       this.eventData.date = this.plusDays(this.actualDate, index);
       this.eventData.description =
         (index + 1).toString() + '° Fumigation of ' + this.plant.name;
-      this.eventService.create(this.eventData).subscribe();
+      this.eventService.create(1, this.eventData).subscribe();
     }
     this.showDialog();
   }
