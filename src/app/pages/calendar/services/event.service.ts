@@ -56,16 +56,16 @@ export class EventService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getAll(userId: any): Observable<ToDo> {
+  getAll(userId: any): Observable<ToDo[]> {
     let urlPath = `https://apppagripure.herokuapp.com/api/users/${userId}/events`;
     return this.http
-      .get<ToDo>(urlPath, this.httpOptions)
+      .get<ToDo[]>(urlPath, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   //Delete Event
   delete(id: any) {
-    let urlPath = `http://localhost:8080/api/events/${id}`;
+    let urlPath = `https://apppagripure.herokuapp.com/events/${id}`;
     return this.http
       .delete(urlPath, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));

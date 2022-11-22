@@ -17,7 +17,7 @@ export class PlantsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {}
 
   ngOnInit(): void {
-    /*this.plantsService.getAll().subscribe((response: any) => {
+    this.plantsService.getAllPlantsByUserId(1).subscribe((response: any) => {
       this.plants = response;
     });*/
     /*this.plantsService.getAll().subscribe((response: any) => {
