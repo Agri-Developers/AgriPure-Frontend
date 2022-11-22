@@ -38,6 +38,16 @@
             </button>
             <mat-error *ngIf="registerForm.controls.password">{{ getPasswordError() }}</mat-error>
           </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Country</mat-label>
+            <input matInput type="text" spellcheck="false" [formControl]="registerForm.controls.country">
+            <mat-error *ngIf="registerForm.controls.country.invalid">{{ getUsernameError() }}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput type="text" spellcheck="false" [formControl]="registerForm.controls.city">
+            <mat-error *ngIf="registerForm.controls.city.invalid">{{ getUsernameError() }}</mat-error>
+          </mat-form-field>
           <mat-checkbox [formControl]="registerForm.controls.terms">I accept all the Terms and Conditions</mat-checkbox>
           <button mat-flat-button color="basic" type="submit" [disabled]="registerForm.invalid">Submit</button>
         </form>

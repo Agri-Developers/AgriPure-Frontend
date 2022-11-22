@@ -7,6 +7,8 @@ img{
 .mat-card{
     border-radius: 20px;
     margin: 10px;
+    border: solid 2px rgb(255, 255, 255);
+    box-shadow: 0 0 14px rgb(15, 88, 5);
 }
 .gridCard1{
     display: grid;
