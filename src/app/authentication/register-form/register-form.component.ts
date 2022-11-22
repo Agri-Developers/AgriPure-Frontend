@@ -58,6 +58,8 @@ export class RegisterFormComponent {
       email: this.registerForm.get('email')?.value,
       password: this.registerForm.get('password')?.value,
       premium: false,
+      country: '',
+      city: '',
       plants: null,
       events: null,
       plots: null,

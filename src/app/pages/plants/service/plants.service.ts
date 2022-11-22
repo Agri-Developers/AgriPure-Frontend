@@ -1,23 +1,65 @@
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, retry, throwError } from 'rxjs';
-import { User } from 'src/app/authentication/model/User';
-import { TemplateService } from '../../../services/template.service';
 import { Plants } from '../model/Plants';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PlantsService extends TemplateService<Plants> {
-  constructor(http: HttpClient) {
-    super(http);
-    this.basePath = 'http://localhost:8080/api/users/5/plants';
+export class PlantsService {
+  basePath = 'https://apppagripure.herokuapp.com/api/plants';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
+  constructor(public http: HttpClient) {}
+  handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.log(`An error occurred: ${error.error.message}`);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, body was: ${error.error}`
+      );
+    }
+    return throwError(
+      () => new Error('Something happened with request, please try again later')
+    );
   }
 
-  override getById(id: any): Observable<Plants> {
-    let urlPath = 'http://localhost:8080/api/plants';
+  getAll(): Observable<Plants> {
     return this.http
-      .get<Plants>(`${urlPath}/${id}`, this.httpOptions)
+      .get<Plants>(this.basePath, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getById(id: any): Observable<Plants> {
+    return this.http
+      .get<Plants>(`${this.basePath}/${id}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  update(id: any, item: any): Observable<Plants> {
+    return this.http
+      .put<Plants>(
+        `${this.basePath}/${id}`,
+        JSON.stringify(item),
+        this.httpOptions
+      )
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  patch(id: any, item: any): Observable<Plants> {
+    return this.http
+      .patch<Plants>(
+        `${this.basePath}/${id}`,
+        JSON.stringify(item),
+        this.httpOptions
+      )
       .pipe(retry(2), catchError(this.handleError));
   }
 }
