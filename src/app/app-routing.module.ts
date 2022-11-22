@@ -30,7 +30,7 @@ const routes: Routes = [
     component: PlansComponent,
   },
   {
-    path: 'plants/:id',
+    path: 'plants/',
     component: PlantsComponent,
   },
   {

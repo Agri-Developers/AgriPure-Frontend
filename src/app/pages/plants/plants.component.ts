@@ -17,14 +17,14 @@ export class PlantsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {}
 
   ngOnInit(): void {
-    this.plantsService.getAll().subscribe((response: any) => {
+    /*this.plantsService.getAll().subscribe((response: any) => {
       this.plants = response;
-    });
-    // this.plantsService.getAll().subscribe((response: any) => {
-    //   this.plantsView = response.filter((res: any) => {
-    //     return res.saved == true;
-    //   });
-    // });
+    });*/
+    /*this.plantsService.getAll().subscribe((response: any) => {
+       this.plantsView = response.filter((res: any) => {
+         return res.saved == true;
+       });
+     });*/
   }
 
   Search() {

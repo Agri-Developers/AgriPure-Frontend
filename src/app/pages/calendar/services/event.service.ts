@@ -13,7 +13,7 @@ import { ToDo } from '../model/Event';
 })
 export class EventService {
   //Event Endpoint
-  basePath = 'http://localhost:8080/api/events';
+  basePath = 'https://apppagripure.herokuapp.com/api/events';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -43,21 +43,21 @@ export class EventService {
 
   //Create Event
   create(userId: any, item: ToDo): Observable<ToDo> {
-    let urlPath = `http://localhost:8080/api/events/${userId}/`;
+    let urlPath = `${this.basePath}/${userId}/`;
     return this.http
       .post<ToDo>(urlPath, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   //Get Event by date
-  getByDate(date: Date): Observable<ToDo[]> {
+  getByDate(date: any): Observable<ToDo[]> {
     return this.http
-      .get<ToDo[]>(`${this.basePath}?date=${date.toISOString()}`)
+      .get<ToDo[]>(`${this.basePath}?date=${date.toISOString().slice(0,10)}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getAll(userId: any): Observable<ToDo> {
-    let urlPath = `http://localhost:8080/api/users/${userId}/events`;
+    let urlPath = `https://apppagripure.herokuapp.com/api/users/${userId}/events`;
     return this.http
       .get<ToDo>(urlPath, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
