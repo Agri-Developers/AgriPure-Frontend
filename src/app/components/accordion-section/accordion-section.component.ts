@@ -1,19 +1,24 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import {PlantsService} from "../../pages/plants/service/plants.service"
-import {Plants} from "../../pages/plants/model/Plants";
-import { EventService } from 'src/app/pages/calendar/services/event.service';
-import { ToDo } from 'src/app/pages/calendar/model/Event';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ToDo } from 'src/app/pages/calendar/model/Event';
+import { EventService } from 'src/app/pages/calendar/services/event.service';
+import { Plants } from '../../pages/plants/model/Plants';
+import { PlantsService } from '../../pages/plants/service/plants.service';
 import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
 
 @Component({
   selector: 'app-accordion-section',
   templateUrl: './accordion-section.component.html',
-  styleUrls: ['./accordion-section.component.css']
+  styleUrls: ['./accordion-section.component.css'],
 })
 export class AccordionSectionComponent implements OnInit, OnChanges {
-
-  indexPh:Array<any> = [
+  indexPh: Array<any> = [
     { index: 0, color: '#F70000' },
     { index: 1, color: '#EA5400' },
     { index: 2, color: '#FF7A00' },
@@ -28,7 +33,7 @@ export class AccordionSectionComponent implements OnInit, OnChanges {
     { index: 11, color: '#0047FF' },
     { index: 12, color: '#3300FF' },
     { index: 13, color: '#5200FF' },
-    { index: 14, color: '#4D02AC' }
+    { index: 14, color: '#4D02AC' },
   ];
 
   eventData: ToDo;
@@ -37,70 +42,76 @@ export class AccordionSectionComponent implements OnInit, OnChanges {
 
   currentPh: number = 4;
 
-  @Input() id?:number;
+  @Input('id') id?: number;
 
   plant: Plants = {
     id: 0,
-    name: "",
-    scientifistname: "",
-    distancePlants: "",
-    image: "",
-    weather: "",
-    variety: "",
-    infoWeatherConditions: "",
-    depth: "",
-    infoDistanceBetween: "",
-    infoIdealDepth: "",
-    infolandType: "",
+    name: '',
+    scientifist_name: '',
+    distance_between: '',
+    image: '',
+    weather: '',
+    variety: '',
+    info_weather_conditions: '',
+    depth: '',
+    info_distance_between: '',
+    info_ideal_depth: '',
+    info_land_type: '',
     ph: 0,
-    infoFertFumig: "",
-    intervaleFert: 0,
-    intervaleFumig: 0,
-    savePlant: false
+    info_fert_fumig: '',
+    intervale_fert: 0,
+    intervale_fumig: 0,
+    saved: false,
   };
 
-  constructor(private plantsService: PlantsService, private eventService: EventService, private dialog: MatDialog) {
-      this.eventData = {} as ToDo;
-      this.actualDate = new Date();
-      this.actualDate.setHours(0,0,0,0);
-   }
-
-  ngOnInit(): void {
-
+  constructor(
+    private plantsService: PlantsService,
+    private eventService: EventService,
+    private dialog: MatDialog
+  ) {
+    this.eventData = {} as ToDo;
+    this.actualDate = new Date();
+    this.actualDate.setHours(0, 0, 0, 0);
   }
+
+  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.plantsService.getById(this.id).subscribe((response: any) => {this.plant = response});
+    this.plantsService.getById(this.id).subscribe((response: any) => {
+      this.plant = response;
+    });
   }
 
-  addEventFert(){
+  addEventFert() {
     for (let index = 0; index < 3; index++) {
       this.eventData.id = 0;
       this.eventData.date = this.plusDays(this.actualDate, index);
-      this.eventData.description = (index+1).toString() + "° Fertilization of " + this.plant.name;
-      this.eventService.create(this.eventData).subscribe();
+      this.eventData.description =
+        (index + 1).toString() + '° Fertilization of ' + this.plant.name;
+      this.eventService.create(1, this.eventData).subscribe();
     }
     this.showDialog();
   }
 
-  addEventFumig(){
+  addEventFumig() {
     for (let index = 0; index < 3; index++) {
       this.eventData.id = 0;
       this.eventData.date = this.plusDays(this.actualDate, index);
-      this.eventData.description = (index+1).toString() + "° Fumigation of " + this.plant.name;
-      this.eventService.create(this.eventData).subscribe();
+      this.eventData.description =
+        (index + 1).toString() + '° Fumigation of ' + this.plant.name;
+      this.eventService.create(1, this.eventData).subscribe();
     }
     this.showDialog();
   }
 
-  plusDays(date: Date, days: number){
-    date.setDate(date.getDate() + 7*this.plant.intervaleFert*days);
+  plusDays(date: Date, days: number) {
+    date.setDate(date.getDate() + 7 * this.plant.intervale_fert * days);
     return date;
   }
 
-  showDialog(){
+  showDialog() {
     const dialogRef = this.dialog.open(DialogConfirmationComponent, {
-      width: '450px'
+      width: '450px',
     });
   }
 }

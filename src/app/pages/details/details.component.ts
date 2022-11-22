@@ -1,37 +1,36 @@
-import { Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
-import {PlantsService} from "../plants/service/plants.service";
-import {Plants} from "../plants/model/Plants";
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { DialogSavePlantComponent } from 'src/app/components/dialog-save-plant/dialog-save-plant.component';
-import { MatDialog } from '@angular/material/dialog';
+import { Plants } from '../plants/model/Plants';
+import { PlantsService } from '../plants/service/plants.service';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit, OnChanges {
-
   private sub: any;
 
   plant: Plants = {
     id: 0,
-    name: "",
-    scientifistname: "",
-    distancePlants: "",
-    image: "",
-    weather: "",
-    variety: "",
-    infoWeatherConditions: "",
-    depth: "",
-    infoDistanceBetween: "",
-    infoIdealDepth: "",
-    infolandType: "",
+    name: '',
+    scientifist_name: '',
+    distance_between: '',
+    image: '',
+    weather: '',
+    variety: '',
+    info_weather_conditions: '',
+    depth: '',
+    info_distance_between: '',
+    info_ideal_depth: '',
+    info_land_type: '',
     ph: 0,
-    infoFertFumig: "",
-    intervaleFert: 0,
-    intervaleFumig: 0,
-    savePlant: false
+    info_fert_fumig: '',
+    intervale_fert: 0,
+    intervale_fumig: 0,
+    saved: false,
   };
 
   plantId?: Number;
@@ -39,27 +38,34 @@ export class DetailsComponent implements OnInit, OnChanges {
   ID?: String;
   save_plant?: boolean;
 
-  constructor(private plantsService: PlantsService, private route: ActivatedRoute, public dialog: MatDialog) {
-    this.sub = this.route.params.subscribe(params => { this.plantId = +params['id']; });
-    this.plantsService.getById(this.plantId).subscribe((response: any) => {this.plant = response});
+  constructor(
+    private plantsService: PlantsService,
+    private route: ActivatedRoute,
+    public dialog: MatDialog
+  ) {
+    this.sub = this.route.params.subscribe((params) => {
+      this.plantId = +params['id'];
+    });
   }
 
   ngOnInit(): void {
+    this.plantsService.getById(this.plantId).subscribe((response: any) => {
+      this.plant = response;
+    });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges): void {}
 
-  }
-
-  showDialog(){
+  showDialog() {
     const dialogRef = this.dialog.open(DialogSavePlantComponent, {
       width: '450px',
       data: {
-        id: this.plant.id
-      }
+        id: this.plant.id,
+      },
     });
 
-    dialogRef.afterClosed().subscribe(result=>{window.location.reload()});
-
+    dialogRef.afterClosed().subscribe((result) => {
+      window.location.reload();
+    });
   }
 }

@@ -1,14 +1,15 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LogInComponent } from './authentication/log-in/log-in.component';
-import { RegisterFormComponent } from './authentication/register-form/register-form.component';
 import { PlansComponent } from './authentication/plans/plans.component';
-import { PlantsComponent } from './pages/plants/plants.component';
+import { RegisterFormComponent } from './authentication/register-form/register-form.component';
+import { DialogAddPlotComponent } from './components/dialog-add-plot/dialog-add-plot.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
+import { DetailsComponent } from './pages/details/details.component';
 import { ForecastComponent } from './pages/forecast/forecast.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { PlantsComponent } from './pages/plants/plants.component';
 import { PlotsComponent } from './pages/plots/plots.component';
-import {DetailsComponent} from "./pages/details/details.component";
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
     component: PlansComponent,
   },
   {
-    path: 'plants',
+    path: 'plants/:id',
     component: PlantsComponent,
   },
   {
@@ -51,11 +52,11 @@ const routes: Routes = [
   {
     path: 'details/:id',
     component: DetailsComponent,
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

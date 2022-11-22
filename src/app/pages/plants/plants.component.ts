@@ -1,43 +1,45 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Plants } from "./model/Plants";
-import { PlantsService } from "./service/plants.service";
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Plants } from './model/Plants';
+import { PlantsService } from './service/plants.service';
 
 @Component({
   selector: 'app-plants',
   templateUrl: './plants.component.html',
-  styleUrls: ['./plants.component.css']
+  styleUrls: ['./plants.component.css'],
 })
 export class PlantsComponent implements OnInit, OnChanges {
-
   plants: Plants[] = [];
   plantsView: Plants[] = [];
   input: string = '';
-  messageSubtitle: string = "Your Plants: ";
+  messageSubtitle: string = 'Your Plants: ';
 
-  constructor(private plantsService: PlantsService) {
-    this.plantsService.getAll().subscribe((response: any) => {this.plants = response});
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    
-  }
+  constructor(private plantsService: PlantsService) {}
+  ngOnChanges(changes: SimpleChanges): void {}
 
   ngOnInit(): void {
-    this.plantsService.getAll().subscribe((response:any) => {this.plantsView = response.filter((res: any) => {return res.savePlant == true;})})
+    this.plantsService.getAll().subscribe((response: any) => {
+      this.plants = response;
+    });
+    // this.plantsService.getAll().subscribe((response: any) => {
+    //   this.plantsView = response.filter((res: any) => {
+    //     return res.saved == true;
+    //   });
+    // });
   }
 
-  Search(){
-    if(this.input != ''){
-      this.messageSubtitle = "Similar results: ";
+  Search() {
+    if (this.input != '') {
+      this.messageSubtitle = 'Similar results: ';
       this.plantsView = this.plants.filter((res) => {
-        return res.name.toLocaleLowerCase().match(this.input.toLocaleLowerCase());
+        return res.name
+          .toLocaleLowerCase()
+          .match(this.input.toLocaleLowerCase());
       });
-    }
-    else if(this.input == ''){
+    } else if (this.input == '') {
       this.messageSubtitle = 'Your plants: ';
       this.plantsView = this.plants.filter((res) => {
-        return res.savePlant == true;
+        return res.saved == true;
       });
     }
   }
-
 }

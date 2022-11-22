@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Users } from '../log-in/model/users';
+import { User } from '../model/User';
 import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.css']
+  styleUrls: ['./register-form.component.css'],
 })
 export class RegisterFormComponent {
   submitted = false;
   hide = true;
-  usersList: Users[] = [];
+  usersList: User[] = [];
+  newUser!: User;
 
   registerForm = this.formBuilder.group({
     username: ['', {validators: [Validators.required], updateOn: 'change'}],
@@ -27,7 +28,9 @@ export class RegisterFormComponent {
   }
 
   ngOnInit(): void {
-    this.userService.getAll().subscribe((response: any) => {this.usersList = response});
+    this.userService.getAll().subscribe((response: any) => {
+      this.usersList = response;
+    });
   }
 
   submitForm() {
@@ -37,10 +40,20 @@ export class RegisterFormComponent {
     let user = {
       username: this.registerForm.get('username')?.value,
       email: this.registerForm.get('email')?.value,
-      password: this.registerForm.get('password')?.value
-    }
-    if (this.usersList.find((u: Users) => { return u.email == user.email; })) {
-      alert("Email already exist!")
+      password: this.registerForm.get('password')?.value,
+      premium: false,
+      country: '',
+      city: '',
+      plants: null,
+      events: null,
+      plots: null,
+    };
+    if (
+      this.usersList.find((u: User) => {
+        return u.email == user.email;
+      })
+    ) {
+      alert('Email already exist!');
       return;
     }
     this.userService.create(user).subscribe();
@@ -48,20 +61,20 @@ export class RegisterFormComponent {
   }
 
   getUsernameError() {
-    return "Please, enter an username";
+    return 'Please, enter an username';
   }
 
   getEmailError() {
-    if(this.registerForm?.get('email')?.hasError('email')) {
-      return "Please, enter a valid email address";
+    if (this.registerForm?.get('email')?.hasError('email')) {
+      return 'Please, enter a valid email address';
     }
-    return "Please, enter an email address";
+    return 'Please, enter an email address';
   }
 
   getPasswordError() {
-    if(this.registerForm?.get('password')?.hasError('minlength')) {
-      return "Please, enter a password at least 8 characters";
+    if (this.registerForm?.get('password')?.hasError('minlength')) {
+      return 'Please, enter a password at least 8 characters';
     }
-    return "Please, enter a password";
+    return 'Please, enter a password';
   }
 }
