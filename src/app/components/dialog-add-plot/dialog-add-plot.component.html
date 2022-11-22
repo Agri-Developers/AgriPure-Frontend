@@ -1,28 +1,31 @@
 <h1 mat-dialog-title>Add Plot</h1>
-
-<h3>Select one of your saved plants: </h3>
-
-          <mat-radio-button class="example-margin" value="after">Cauliflower</mat-radio-button>
-          <mat-radio-button class="example-margin" value="before">Lettuce</mat-radio-button>
-          <mat-radio-button class="example-margin" value="before">Potato</mat-radio-button>
-<br>
-<h2>Insert your direcction: </h2>
-
 <mat-dialog-content class="text">
-    <h3>Latitud:</h3>
-    <mat-form-field appearance="outline" class="bg">
-        <input matInput [(ngModel)]="coordinates" matInput style="color: black;"/>
+  <form [formGroup]='newPlotForm' (submit)="submitForm()">
+    <mat-form-field appearance="fill">
+      <mat-label>NAME of the plant</mat-label>
+      <input matInput type="text" spellcheck="false" [formControl]="newPlotForm.controls.plantName">
     </mat-form-field>
-    <h3>Longitud:</h3>
-    <mat-form-field appearance="outline" class="bg">
-        <input matInput [(ngModel)]="coordinates" matInput style="color: black;"/>
+    <mat-form-field appearance="fill">
+      <mat-label>SIZE of the plot in m<sup>2</sup></mat-label>
+      <input matInput type="number" spellcheck="false" [formControl]="newPlotForm.controls.size">
     </mat-form-field>
-    <p>To know your latitude and longitude, you can use <a href="#" style="color: brown;">Google Maps</a></p>
+    <mat-form-field appearance="fill">
+      <mat-label>QUANTITY of plants on the plot</mat-label>
+      <input matInput type="number" spellcheck="false" [formControl]="newPlotForm.controls.quantity">
+    </mat-form-field>
+    <h3>Location info:</h3>
+    <mat-form-field appearance="fill">
+      <mat-label>LATITUDE</mat-label>
+      <input matInput type="text" spellcheck="false" [formControl]="newPlotForm.controls.latitude">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>LONGITUDE</mat-label>
+      <input matInput type="text" spellcheck="false" [formControl]="newPlotForm.controls.longitude">
+    </mat-form-field>
+    <p>To know your latitude and longitude, you can use <a href="www.googlemaps.com" style="color: brown;">Google Maps</a></p>
+    <div mat-dialog-actions style="display: grid; grid-template-columns: 1fr 1fr;">
+      <button mat-raised-button mat-dialog-close>Cancel</button>
+      <button mat-flat-button style="background-color: #148414;" type="submit" [disabled]="newPlotForm.invalid">Add Plot</button>
+    </div>
+  </form>
 </mat-dialog-content>
-
-    
-
-<div mat-dialog-actions style="display: grid; grid-template-columns: 1fr 1fr;">
-    <button mat-raised-button (click)="onNoClick()">Cancel</button>
-    <button mat-raised-button mat-dialog-close style="background-color: #148414;">Add</button>
-</div>
