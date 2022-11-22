@@ -19,12 +19,12 @@ export class PlantsComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.plantsService.getAllPlantsByUserId(1).subscribe((response: any) => {
       this.plants = response;
-    });
-    // this.plantsService.getAll().subscribe((response: any) => {
-    //   this.plantsView = response.filter((res: any) => {
-    //     return res.saved == true;
-    //   });
-    // });
+    });*/
+    /*this.plantsService.getAll().subscribe((response: any) => {
+       this.plantsView = response.filter((res: any) => {
+         return res.saved == true;
+       });
+     });*/
   }
 
   Search() {

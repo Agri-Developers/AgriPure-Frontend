@@ -43,16 +43,16 @@ export class EventService {
 
   //Create Event
   create(userId: any, item: ToDo): Observable<ToDo> {
-    let urlPath = `https://apppagripure.herokuapp.com/api/events/${userId}/`;
+    let urlPath = `${this.basePath}/${userId}/`;
     return this.http
       .post<ToDo>(urlPath, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   //Get Event by date
-  getByDate(date: Date): Observable<ToDo[]> {
+  getByDate(date: any): Observable<ToDo[]> {
     return this.http
-      .get<ToDo[]>(`${this.basePath}?date=${date.toISOString()}`)
+      .get<ToDo[]>(`${this.basePath}?date=${date.toISOString().slice(0,10)}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
