@@ -5,5 +5,4 @@ export interface Plot{
     quantity: number; //cantidad de plantas en el plot
     latitude: number; //latitud
     longitude: number; //longitud
-    isPlot: boolean; //la planta ya tiene un plot?
 }
